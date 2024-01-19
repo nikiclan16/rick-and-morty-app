@@ -1,8 +1,8 @@
-import Head from "next/head";
+import { Metadata } from "next";
 import "../app/404.css";
 import Link from "next/link";
 
-export const metadada = {
+export const metadada: Metadata = {
   title: "Not Found - 404",
   description:
     "The page you are trying to search has been moved to another universe.",

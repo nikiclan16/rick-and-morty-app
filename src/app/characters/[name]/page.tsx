@@ -35,40 +35,16 @@ export default async function CharacterPage({ params }: Props) {
   if (results === undefined) notFound();
 
   return (
-    <div
-      className={`items-center justify-center pb-20 h-full w-full ${
-        results === undefined && "h-screen"
-      } bg-[#f3f6ff]`}
-    >
+    <div className="h-full items-center justify-center pb-20 bg-[#f3f6ff]">
       <BackButton url="/characters" />
-
-      {results === undefined ? (
-        <h1 className="text-4xl font-bold text-gray-500 text-center mb-8 pt-14 pb-10">
-          Not results with: {`"${params.name}"`}
-        </h1>
-      ) : (
-        <>
-          <h1 className="text-4xl font-bold text-gray-500 text-center mb-8 pt-14 pb-10">
-            Results with: {`"${params.name}"`}
-          </h1>
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "30px",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            {results.map((character) => (
-              <CharactersGridByName
-                character={character}
-                key={character.name}
-              />
-            ))}
-          </div>
-        </>
-      )}
+      <h1 className="text-4xl font-bold text-gray-500 text-center mb-8 pt-14 pb-10">
+        Results with: {`"${params.name}"`}
+      </h1>
+      <div className="flex flex-wrap gap-8 items-center justify-center">
+        {results.map((character) => (
+          <CharactersGridByName character={character} key={character.name} />
+        ))}
+      </div>
     </div>
   );
 }
